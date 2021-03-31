@@ -9,3 +9,7 @@ Pour faire fonctionner le projet, vous devez installer node-sass à part.
 Démarrer `ng serve` pour avoir accès au serveur de développement à partir du dossier frontend.
 Démarrer `node server` ou `nodemon server` à partir du dossier backend pour lancer l'aplication.
 Rendez-vous sur `http://localhost:4200/
+
+## .env security
+
+Insérer le fichier .env au dossier backend pour faire focntionner l'application 
