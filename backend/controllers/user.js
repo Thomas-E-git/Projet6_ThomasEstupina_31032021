@@ -5,8 +5,11 @@ const User = require('../models/User');
 
 
 exports.signup = (req, res, next) => {
-    // hash du mot de passe utilisateur avec bcrypt //
-    bcrypt.hash(req.body.password, 10)
+    var re = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,})$/;
+    var password = req.body.password;
+    if (re.test(password)) {
+        // hash du mot de passe utilisateur avec bcrypt //
+        bcrypt.hash(req.body.password, 10)
         .then(hash => {
             const user = new User({
                 email: req.body.email,
@@ -17,6 +20,8 @@ exports.signup = (req, res, next) => {
                 .catch(error => res.status(400).json({ error }));
         })
         .catch(error => res.status(500).json({ error }));
+        }
+    else (res.status(400).json({ message: "le mot de passe doit contenir au moins 8 caractères, avec au moins une majuscule, une minuscule, un chiffre et un caractère spécial" }))
 };
 
 exports.login = (req, res, next) => {
