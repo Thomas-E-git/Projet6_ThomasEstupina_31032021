@@ -12,4 +12,4 @@ Rendez-vous sur `http://localhost:4200/
 
 ## .env security
 
-Insérer le fichier .env au dossier backend pour faire focntionner l'application 
+Insérer le fichier .env au dossier backend pour faire fonctionner l'application 
